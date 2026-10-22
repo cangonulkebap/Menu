@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#100d0c">
+<title>Cangönül Kebap | Menü</title>
+
+<!-- Early connections -->
+<link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+<link rel="dns-prefetch" href="//res.cloudinary.com">
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #100f0e;
+  --ink: #fffaf5;
+  --muted: #b9b0a9;
+  --red: #ed1025;
+  --gold: #ffc13a;
+  --line: #37312e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 82px;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+    ellipse at 50% 20%,
+    #30201a 0,
+    #100f0e 62%
+  );
+  color: var(--ink);
+  font-family: Manrope, Arial, sans-serif;
+}
+
+/* HEADER */
+.hero {
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10,8,8,.96),
+      rgba(15,8,7,.76) 48%,
+      rgba(15,8,7,.18)
+    ),
+    url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1100&q=70")
+    center 54% / cover;
+  padding: 30px max(22px, calc((100vw - 1200px)/2)) 36px;
+  border-bottom: 2px solid var(--red);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  min-height: 130px;
+}
+
+.welcome-title {
+  margin: 0;
+  color: #fffaf5;
+  font-family: Lora, Georgia, serif;
+  font-size: clamp(34px, 7.5vw, 70px);
+  font-weight: 600;
+  text-shadow: 0 2px 18px #0009;
+}
+
+/* NAVIGATION */
+.nav-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 10px 12px;
+  background: #100f0eef;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #ffffff0d;
+}
+
+.tabs {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  gap: 7px;
+  padding: 4px;
+  background: #1c1b1a;
+  border: 1px solid #48403b;
+  border-radius: 999px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 15px;
+  background: transparent;
+  color: #e8dfd8;
+  font: 700 13px Manrope, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s;
+}
+
+.tab .emoji {
+  margin-right: 6px;
+}
+
+.tab.active {
+  background: var(--red);
+  color: white;
+  box-shadow: 0 4px 18px #ed10253c;
+}
+
+/* MAIN */
+main {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0 22px 32px;
+}
+
+.menu-section {
+  padding: 22px 0 19px;
+  border-bottom: 1px solid #ffffff17;
+  scroll-margin-top: 78px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 0 0 15px;
+}
+
+.heading-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.section-icon {
+  color: var(--red);
+  font-size: 33px;
+  line-height: 1;
+}
+
+.section-heading h2 {
+  font-size: clamp(21px, 3vw, 29px);
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: -.7px;
+}
+
+.section-heading p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 3px 0 0;
+}
+
+.count-pill {
+  flex: 0 0 auto;
+  background: var(--red);
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* PRODUCT GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.card {
+  overflow: hidden;
+  min-width: 0;
+  background: linear-gradient(145deg, #211f1e, #151515);
+  border: 1px solid #393330;
+  border-radius: 13px;
+  box-shadow: 0 7px 20px #0003;
+  transition: transform .2s, border-color .2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: #8b3a32;
+}
+
+/* IMAGE LOADING */
+.photo {
+  position: relative;
+  aspect-ratio: 1.5 / 1;
+  overflow: hidden;
+  background: #2b2420;
+}
+
+.photo:not(.loaded):not(.error) {
+  background: linear-gradient(
+    110deg,
+    #292320 8%,
+    #40352e 18%,
+    #292320 33%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.5s linear infinite;
+}
+
+@keyframes skeleton {
+  from { background-position-x: 200%; }
+  to { background-position-x: -200%; }
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.02);
+  transition:
+    opacity .4s ease,
+    transform .4s ease;
+}
+
+.photo.loaded img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.card:hover .photo.loaded img {
+  transform: scale(1.05);
+}
+
+.photo.error {
+  background: linear-gradient(
+    135deg,
+    #49352b,
+    #1d1714
+  );
+}
+
+.photo.error::after {
+  content: "Görsel yakında";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  color: #d2c4ba;
+}
+
+/* DETAILS */
+.details {
+  padding: 10px 10px 11px;
+}
+
+.details h3 {
+  font-size: 13px;
+  line-height: 1.35;
+  margin: 0 0 5px;
+  font-weight: 800;
+}
+
+.desc {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #bfb5ad;
+  margin: 0;
+}
+
+.price-row {
+  margin-top: 9px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.price {
+  display: inline-flex;
+  align-items: center;
+  background: var(--red);
+  color: white;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font: 700 13px Oswald, Manrope, sans-serif;
+  white-space: nowrap;
+}
+
+.price-double {
+  background: #3b3028;
+  color: #ffcf87;
+  font-family: Manrope, sans-serif;
+  font-size: 11px;
+}
+
+.heart-mark {
+  color: #ff3947;
+  font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 2px solid var(--red);
+  background: #080807;
+  padding: 25px 22px;
+  color: white;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer-brand {
+  font-family: Oswald, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.footer-brand span {
+  color: var(--red);
+}
+
+.footer-slogan {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #e6d5c7;
+  text-align: center;
+}
+
+.footer-info {
+  font-size: 11px;
+  color: #d0c6be;
+  line-height: 2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .hero {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 680px) {
+  .hero {
+    min-height: 180px;
+    padding: 25px 17px 28px;
+    background-position: 58% center;
+  }
+
+  main {
+    padding: 0 13px 25px;
+  }
+
+  .menu-section {
+    padding: 19px 0 16px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .photo {
+    aspect-ratio: 1.28 / 1;
+  }
+
+  .details {
+    padding: 10px;
+  }
+
+  .details h3 {
+    font-size: 13px;
+  }
+
+  .section-heading p {
+    font-size: 10px;
+  }
+
+  .section-icon {
+    font-size: 28px;
+  }
+
+  .count-pill {
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+
+  .tab {
+    font-size: 11px;
+    padding: 11px 12px;
+  }
+
+  .price {
+    font-size: 12px;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid {
+    gap: 8px;
+  }
+
+  .details {
+    padding: 8px;
+  }
+
+  .details h3 {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .photo img,
+  .photo {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="hero">
+  <div class="brand-row">
+    <h1 class="welcome-title">Hoş Geldiniz</h1>
+  </div>
+</header>
+
+<div class="nav-wrap">
+  <nav class="tabs" id="tabs" aria-label="Menü bölümleri"></nav>
+</div>
+
+<main id="main"></main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      CANGÖNÜL <span>Kebap</span>
+    </div>
+    <div class="footer-slogan">
+      İyi Yemek, Mutlu İnsanlar
+    </div>
+    <div class="footer-info">
+      ♥ Cangönül Kebap<br>
+      Afiyet olsun · Sevgiyle hazırlanır
+    </div>
+  </div>
+</footer>
+
+<script>
+
+/*
+=======================================
+IMAGE OPTIMIZATION SETTINGS
+=======================================
+
+يمكن تغيير عرض الصور من هنا.
+
+500 مناسب لمعظم بطاقات المنيو.
+600 إذا أردت دقة أعلى قليلًا.
+*/
+
+const IMAGE_WIDTH = 500;
+
+/*
+تحسين Cloudinary:
+- تحديد العرض
+- ضغط تلقائي
+- صيغة تلقائية
+- الحفاظ على الشفافية إن كانت مدعومة
+*/
+
+function optimizeImage(url) {
+
+  if (!url || typeof url !== "string") {
+    return "";
+  }
+
+  const cleanUrl = url.trim();
+
+  // Ignore incomplete placeholder URLs.
+  if (
+    /^https:\/\/res\.cloudinary\.com\/[^/]+\/image\/upload\/(?:f_auto,q_auto\/)?\d{4}$/.test(cleanUrl)
+  ) {
+    return "";
+  }
+
+  // Cloudinary
+  if (
+    cleanUrl.startsWith("https://res.cloudinary.com/") &&
+    cleanUrl.includes("/image/upload/")
+  ) {
+
+    const marker = "/image/upload/";
+    const parts = cleanUrl.split(marker);
+    const rest = parts.slice(1).join(marker);
+
+    // Already optimized URLs are left unchanged.
+    if (
+      /(?:^|[\/,])f_auto(?:[,\/]|$)/.test(rest) ||
+      /(?:^|[\/,])q_auto(?:[,\/]|$)/.test(rest)
+    ) {
+      return cleanUrl;
+    }
+
+    return (
+      parts[0] +
+      marker +
+      "c_limit,w_" + IMAGE_WIDTH +
+      "/f_auto/q_auto/" +
+      rest
+    );
+  }
+
+  // Unsplash
+  if (cleanUrl.startsWith("https://images.unsplash.com/")) {
+
+    try {
+      const u = new URL(cleanUrl);
+
+      u.searchParams.set("auto", "format");
+      u.searchParams.set("fit", "crop");
+      u.searchParams.set("w", String(IMAGE_WIDTH));
+      u.searchParams.set("q", "75");
+
+      return u.toString();
+
+    } catch (error) {
+      return cleanUrl;
+    }
+  }
+
+  // Other image hosts
+  return cleanUrl;
+}
+
+/*
+=======================================
+MENU DATA
+=======================================
+
+*/
+
+const menuData = [
+
+  /* 1 - IZGARALAR */
+  {
+    id: "izgaralar",
+    label: "Izgaralar",
+    emoji: "🔥",
+    items: [
+
+      {
+        name: "Adana Kebap",
+        price: 600,
+        doublePrice: 900,
+        // Replace with full Cloudinary image URL
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616070/1756.png"
+      },
+
+      {
+        name: "Beyti",
+        price: 600,
+        doublePrice: 900,
+        // Replace with full Cloudinary image URL
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616070/1756.png"
+      },
+
+      {
+        name: "Beyti Sarma",
+        price: 750,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616780/Yo%C4%9Furtlu_Soslu_Kebap_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Kuşbaşı",
+        price: 650,
+        doublePrice: 975,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616781/Izgara_Et_K%C3%BCpleri_ve_K%C3%B6z_Sebzeler.png"
+      },
+
+      {
+        name: "Külbastı",
+        price: 800,
+        doublePrice: 1200,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616785/Izgara_Et_ve_K%C3%B6zlenmi%C5%9F_Sebzeler.png"
+      },
+
+      {
+        name: "Yağlı Kara",
+        price: 750,
+        doublePrice: 1100,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616794/%D9%83%D8%A8%D8%A7%D8%A8_%D9%85%D8%B4%D9%88%D9%8A_%D8%B9%D9%84%D9%89_%D8%B7%D8%A8%D9%82_%D8%A3%D8%A8%D9%8A%D8%B6_%D9%85%D8%B2%D9%8A%D9%86.png"
+      },
+
+      {
+        name: "Pirzola",
+        price: 800,
+        doublePrice: 1200,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616792/Izgara_Kuzu_Pirzola_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Kaburga",
+        price: 800,
+        doublePrice: 1200,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616788/Izgara_Kaburga_ve_Biber_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Kemiksiz Tavuk",
+        price: 600,
+        doublePrice: 900,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616793/Izgara_Tavuk_%C5%9Ei%C5%9F_ve_K%C3%B6z_Sebzeler.png"
+      },
+
+      {
+        name: "Tavuk Pirzola",
+        price: 600,
+        doublePrice: 900,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616790/Izgara_Tavuk_ve_Sebzeli_Tabak.png"
+      },
+
+      {
+        name: "Kanat",
+        price: 600,
+        doublePrice: 900,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616792/Izgara_Tavuk_Kanatlar%C4%B1_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Ciğer",
+        price: 700,
+        doublePrice: 1050,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616801/Izgara_Kebap_%C5%9E%C3%B6leni.png"
+      },
+
+      {
+        name: "Patlıcan Kebabı",
+        price: 800,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616801/Izgara_Sebzeli_Patl%C4%B1can_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Ortaya Ciğer",
+        price: 400,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616801/Izgara_Kebap_%C5%9E%C3%B6leni.png"
+      }
+
+    ]
+  },
+
+  /* 2 - ÖZEL MENÜLER */
+  {
+    id: "ozel-menuler",
+    label: "Özel Menüler",
+    emoji: "⭐",
+    items: [
+
+      {
+        name: "VIP Karışık Izgara (1 kişilik)",
+        price: 1100,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616807/%C5%9Eeffaf_Arka_Planda_Izgara_Et_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "VIP Karışık Sade Et (1 kişilik)",
+        price: 1300,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616807/%C5%9Eeffaf_Arka_Planda_Izgara_Et_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Metrelik Kebap (1 kişilik)",
+        price: 2500,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792618171/Izgara_Adana_Kebab%C4%B1_%C5%9Ei%C5%9Fi.png"
+      }
+
+    ]
+  },
+
+  /* 3 - PİDELER */
+  {
+    id: "pideler",
+    label: "Pideler",
+    emoji: "🥙",
+    items: [
+
+      {
+        name: "Kaşarlı Pide",
+        price: 600,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616808/%D9%82%D8%B7%D8%B9_%D8%A8%D9%8A%D8%AF%D8%A7_%D8%AA%D8%B1%D9%83%D9%8A%D8%A9_%D8%A8%D8%A7%D9%84%D8%AC%D8%A8%D9%86_%D8%A7%D9%84%D8%B0%D8%A7%D8%A6%D8%A8.png"
+      },
+
+      {
+        name: "Kuşbaşılı Pide",
+        price: 650,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616809/T%C3%BCrk_Usul%C3%BC_Etli_Sebzeli_Pide.png"
+      },
+
+      {
+        name: "Kuşbaşılı Kaşarlı Pide",
+        price: 675,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616799/K%C4%B1ymal%C4%B1_Peynirli_T%C3%BCrk_Pidesi.png"
+      },
+
+      {
+        name: "Kıymalı Pide",
+        price: 600,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616804/Dilimlenmi%C5%9F_Etli_T%C3%BCrk_Pidesi.png"
+      },
+
+      {
+        name: "Kıymalı Kaşarlı Pide",
+        price: 650,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616799/K%C4%B1ymal%C4%B1_Peynirli_T%C3%BCrk_Pidesi.png"
+      },
+
+      {
+        name: "Tavuklu Pide",
+        price: 600,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616811/%D8%AF%D8%AC%D8%A7%D8%AC_%D9%88%D8%AE%D8%B6%D8%A7%D8%B1_%D8%B9%D9%84%D9%89_%D8%AE%D8%A8%D8%B2_%D8%A7%D9%84%D8%A8%D9%8A_pide_%D8%A7%D9%84%D8%AA%D8%B1%D9%83%D9%8A.png"
+      },
+
+      {
+        name: "Tavuklu Kaşarlı Pide",
+        price: 625,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616810/%C5%9Eeffaf_Arka_Planda_Dilimlenmi%C5%9F_Tavuklu_Pide.png"
+      }
+
+    ]
+  },
+
+  /* 4 - LAHMACUNLAR */
+  {
+    id: "lahmacunlar",
+    label: "Lahmacunlar",
+    emoji: "🫓",
+    items: [
+
+      {
+        name: "Antep Lahmacun",
+        price: 600,
+        // Replace with full Cloudinary image URL
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616192/1769.png"
+      },
+
+      {
+        name: "Adana Lahmacun",
+        price: 500,
+        // Replace with full Cloudinary image URL
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792616401/1768.png"
+      }
+
+    ]
+  },
+
+  /* 5 - ARA SICAKLAR & MEZELER */
+  {
+    id: "ara-sicaklar",
+    label: "Ara Sıcaklar & Mezeler",
+    emoji: "🥗",
+    items: [
+
+      {
+        name: "Çiğ Köfte",
+        price: 150,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792621877/Renkli_%C3%87i%C4%9F_K%C3%B6fte_Taba%C4%9F%C4%B1.png"
+      },
+
+      {
+        name: "Kaşarlı Humus",
+        price: 150,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616820/Toprak_Kapta_K%C4%B1zarm%C4%B1%C5%9F_Peynirli_Graten_1.png"
+      },
+
+      {
+        name: "Kaşarlı Kültür Mantarı",
+        price: 200,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616822/Peynirli_Yedi_Dolma_Mantar.png"
+      },
+
+      {
+        name: "Patates Cipsi",
+        price: 200,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792621705/%D8%AB%D9%84%D8%A7%D8%AB%D9%8A%D8%A9_%D8%B5%D9%84%D8%B5%D8%A7%D8%AA_%D9%81%D9%88%D9%82_%D8%A8%D8%B7%D8%A7%D8%B7%D8%B3_%D8%B0%D9%87%D8%A8%D9%8A%D8%A9.png"
+      }
+
+    ]
+  },
+
+  /* 6 - FAST FOOD */
+  {
+    id: "fast-food",
+    label: "Fast Food",
+    emoji: "🍔",
+    items: [
+
+      {
+        name: "Steak Hamburger",
+        price: 500,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/v1792616810/%D8%A8%D8%B1%D8%BA%D8%B1_%D8%B4%D9%87%D9%8A_%D9%85%D8%B9_%D8%A8%D8%B7%D8%A7%D8%B7%D8%B3_%D9%88%D8%B5%D9%84%D8%B5%D8%A7%D8%AA_1.png"
+      }
+
+    ]
+  },
+
+  /* 7 - İÇECEKLER */
+  {
+    id: "icecekler",
+    label: "İçecekler",
+    emoji: "🥤",
+    items: [
+
+      {
+        name: "İçecekler",
+        price: 100,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792620994/Yo%C4%9Funla%C5%9Ft%C4%B1r%C4%B1lm%C4%B1%C5%9F_So%C4%9Fuk_%C4%B0%C3%A7ecek_Koleksiyonu.png"
+      },
+
+      {
+        name: "Kahve",
+        price: 100,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792620738/%D9%83%D9%88%D8%A8_%D9%82%D9%87%D9%88%D8%A9_%D8%AA%D8%B1%D9%83%D9%8A%D8%A9_%D9%81%D8%A7%D8%AE%D8%B1_%D9%85%D8%B9_%D8%B5%D8%AD%D9%86_%D8%A3%D8%A8%D9%8A%D8%B6.png"
+      },
+
+      {
+        name: "Su",
+        price: 50,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792621484/Erikli_Do%C4%9Fal_Kaynak_Suyu_%C5%9Ei%C5%9Fesi.png"
+      },
+
+      {
+        name: "Çay",
+        price: 25,
+        image: "https://res.cloudinary.com/fpqrpvd5/image/upload/c_limit,w_500/f_auto/q_auto/v1792620844/Geleneksel_T%C3%BCrk_%C3%87ay%C4%B1_Barda%C4%9F%C4%B1.png"
+      }
+
+    ]
+  }
+
+];
+
+/*
+=======================================
+RENDER MENU
+=======================================
+*/
+
+const tabs = document.getElementById("tabs");
+const main = document.getElementById("main");
+
+function makeTab(category) {
+
+  const button = document.createElement("button");
+
+  button.className =
+    "tab" +
+    (category.id === menuData[0].id ? " active" : "");
+
+  button.type = "button";
+
+  const emoji = document.createElement("span");
+  emoji.className = "emoji";
+  emoji.textContent = category.emoji;
+
+  button.append(
+    emoji,
+    document.createTextNode(category.label)
+  );
+
+  button.addEventListener("click", () => {
+
+    document.getElementById(category.id)
+      .scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    document.querySelectorAll(".tab").forEach(tab => {
+      tab.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+  });
+
+  tabs.appendChild(button);
+}
+
+function makeSection(category) {
+
+  const section = document.createElement("section");
+  section.className = "menu-section";
+  section.id = category.id;
+
+  const heading = document.createElement("div");
+  heading.className = "section-heading";
+
+  const left = document.createElement("div");
+  left.className = "heading-left";
+
+  const icon = document.createElement("span");
+  icon.className = "section-icon";
+  icon.textContent = category.emoji;
+
+  const text = document.createElement("div");
+
+  const title = document.createElement("h2");
+  title.textContent = category.label;
+
+  const subtitle = document.createElement("p");
+  subtitle.textContent = "Özenle seçilmiş lezzetler...";
+
+  text.append(title, subtitle);
+  left.append(icon, text);
+
+  const count = document.createElement("span");
+  count.className = "count-pill";
+  count.textContent = category.items.length + " Ürün ›";
+
+  heading.append(left, count);
+  section.appendChild(heading);
+
+  const grid = document.createElement("div");
+  grid.className = "grid";
+
+  category.items.forEach((item, itemIndex) => {
+
+    const card = document.createElement("article");
+    card.className = "card";
+
+    /* IMAGE */
+    const photo = document.createElement("div");
+    photo.className = "photo";
+
+    const img = document.createElement("img");
+
+    img.alt = item.name;
+    img.decoding = "async";
+
+    /*
+    Give priority to the first two images only.
+    Other images are lazy-loaded.
+    */
+    const isPriority =
+      category.id === menuData[0].id &&
+      itemIndex < 2;
+
+    img.loading = isPriority ? "eager" : "lazy";
+
+    if (isPriority && itemIndex === 0) {
+      img.fetchPriority = "high";
+    } else {
+      img.fetchPriority = "auto";
+    }
+
+    /*
+    Let browser select the image size
+    from CSS layout. Width/height here
+    are for intrinsic aspect ratio hints.
+    */
+    img.width = 500;
+    img.height = 333;
+
+    img.onload = () => {
+      photo.classList.add("loaded");
+    };
+
+    img.onerror = () => {
+      photo.classList.add("error");
+      img.style.display = "none";
+    };
+
+    const imageUrl = optimizeImage(item.image);
+
+    if (imageUrl) {
+      img.src = imageUrl;
+      photo.appendChild(img);
+
+      if (img.complete && img.naturalWidth > 0) {
+        photo.classList.add("loaded");
+      }
+    } else {
+      photo.classList.add("error");
+    }
+
+    /* DETAILS */
+    const details = document.createElement("div");
+    details.className = "details";
+
+    const productTitle = document.createElement("h3");
+    productTitle.textContent = item.name;
+
+    const description = document.createElement("p");
+    description.className = "desc";
+
+    if (item.doublePrice != null) {
+      description.textContent = "Tek Porsiyon / Duble";
+    } else {
+      description.style.display = "none";
+    }
+
+    /* PRICE */
+    const row = document.createElement("div");
+    row.className = "price-row";
+
+    const price = document.createElement("span");
+    price.className = "price";
+    price.textContent =
+      item.price.toLocaleString("tr-TR") + " TL";
+
+    const heart = document.createElement("span");
+    heart.className = "heart-mark";
+    heart.textContent = "♥";
+
+    row.append(price, heart);
+
+    /* DOUBLE PRICE */
+    if (item.doublePrice != null) {
+
+      const doublePrice = document.createElement("span");
+      doublePrice.className = "price price-double";
+
+      doublePrice.textContent =
+        "Duble " +
+        item.doublePrice.toLocaleString("tr-TR") +
+        " TL";
+
+      row.appendChild(doublePrice);
+    }
+
+    details.append(productTitle, description, row);
+    card.append(photo, details);
+    grid.appendChild(card);
+
+  });
+
+  section.appendChild(grid);
+  main.appendChild(section);
+}
+
+/* BUILD MENU */
+menuData.forEach(category => {
+  makeTab(category);
+  makeSection(category);
+});
+
+/* ACTIVE CATEGORY */
+const allTabs = [...document.querySelectorAll(".tab")];
+
+if ("IntersectionObserver" in window) {
+
+  const observer = new IntersectionObserver(entries => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+
+        const index = menuData.findIndex(
+          category => category.id === entry.target.id
+        );
+
+        allTabs.forEach((tab, i) => {
+          tab.classList.toggle("active", index === i);
+        });
+
+      }
+
+    });
+
+  }, {
+    rootMargin: "-25% 0px -60% 0px"
+  });
+
+  menuData.forEach(category => {
+    observer.observe(
+      document.getElementById(category.id)
+    );
+  });
+
+}
+
+</script>
+</body>
+</html>
